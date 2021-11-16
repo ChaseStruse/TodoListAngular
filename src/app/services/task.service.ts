@@ -3,6 +3,10 @@ import { Observable } from 'rxjs';
 import { Task } from '../Task';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,5 +26,9 @@ export class TaskService {
 
   updateTask(task: Task): Observable<Task> {
     return this.httpClient.put<Task>(`${this.apiUrl}/${task.id}`, task);
+  }
+
+  addTask(task: Task): Observable<Task> {
+    return this.httpClient.post<Task>(this.apiUrl, task, httpOptions);
   }
 }
