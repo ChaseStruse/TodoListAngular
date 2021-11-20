@@ -1,6 +1,10 @@
 # To Do List
 
-Description goes here
+## Running the Projects
+
+- npm init
+- npm run server (This will start the server and allow you to save)
+- ng serve
 
 ## Tools used
 
